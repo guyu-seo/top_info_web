@@ -17,7 +17,7 @@ export default async function handler(req: any, res: any) {
   }
 
   // 从环境变量获取密钥
-  const secret = process.env.VITE_HMAC_SECRET
+  const secret = 'feiyi'
   if (!secret) {
     console.error('HMAC secret not configured')
     return res.status(500).json({ error: 'Server configuration error: HMAC secret not configured' })
