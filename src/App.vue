@@ -63,7 +63,7 @@ const vhInit = async () => {
     const params = { type: 'all' }
     // 生成签名
     const signature = generateHmacSignature(params)
-    const res = await fetch('/api/topinfo/data?type=all', {
+    const res = await fetch('http://139.224.135.232:9000/topinfo/data?type=all', {
       headers: {
         'X-SIGN': signature,
         'Content-Type': 'application/json'
