@@ -1,11 +1,11 @@
-import { HmacSHA256 } from 'crypto-js'
+import CryptoJS from 'crypto-js'
 
 const generateHmacSignature = (params: Record<string, any>, secret: string): string => {
   const sortedParams = Object.keys(params)
     .sort()
     .map((key) => `${key}=${params[key]}`)
     .join('&')
-  return HmacSHA256(sortedParams, secret).toString()
+  return CryptoJS.HmacSHA256(sortedParams, secret).toString()
 }
 
 export default async function handler(req: any, res: any) {
