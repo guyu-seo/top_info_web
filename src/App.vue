@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import moment from 'moment'
 import { DrawingPinIcon } from '@radix-icons/vue'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -35,6 +35,7 @@ import ListItem from '@/components/ListItem/ListItem.vue'
 import { Toaster } from '@/components/ui/toast'
 import { useToast } from '@/components/ui/toast/use-toast'
 import { HmacSHA256 } from 'crypto-js'
+import { inject } from '@vercel/analytics'
 const { toast } = useToast()
 // 热榜列表
 const hotlistKey = ref<any[]>([
@@ -115,6 +116,9 @@ const refreshFn = async (item: any) => {
   updateStatus.value = false
 }
 vhInit()
+
+// Initialize Vercel Web Analytics
+inject()
 
 // 时间处理
 const formatTime = (time: string) => {
