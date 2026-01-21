@@ -24,6 +24,7 @@
     </footer>
   </section>
   <Toaster />
+  <Analytics />
 </template>
 
 <script setup lang="ts">
@@ -34,6 +35,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import ListItem from '@/components/ListItem/ListItem.vue'
 import { Toaster } from '@/components/ui/toast'
 import { useToast } from '@/components/ui/toast/use-toast'
+import { Analytics } from '@vercel/analytics/vue'
 import { HmacSHA256 } from 'crypto-js'
 const { toast } = useToast()
 // 热榜列表
